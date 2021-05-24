@@ -306,7 +306,7 @@ WCHAR ChBuffer[BUFFER_SIZE];
 // Writes the buffer to the console and empties it.
 //-----------------------------------------------------------------------------
 
-inline void FlushBuffer(void)
+inline void FlushBuffer()
 {
     DWORD nWritten;
     if (nCharInBuffer <= 0) return;
@@ -368,7 +368,7 @@ inline void SendSequence(LPCWSTR seq)
 // suffix = 'm'
 //-----------------------------------------------------------------------------
 
-inline void InterpretEscSeq(void)
+inline void InterpretEscSeq()
 {
     int  i;
     WORD attribut;
@@ -1112,7 +1112,7 @@ enum KEY_ACTION {
     BACKSPACE =  127    /* Backspace */
 };
 
-void linenoiseAtExit(void);
+void linenoiseAtExit();
 bool AddHistory(const char *line);
 void refreshLine(struct linenoiseState *l);
 
@@ -1578,7 +1578,7 @@ inline void SetMultiLine(bool ml) {
 
 /* Return true if the terminal name is in the list of terminals we know are
  * not able to understand basic escape sequences. */
-inline bool isUnsupportedTerm(void) {
+inline bool isUnsupportedTerm() {
 #ifndef _WIN32
     char *term = getenv("TERM");
     int j;
@@ -1741,7 +1741,7 @@ failed:
 }
 
 /* Clear the screen. Used to handle ctrl+l */
-inline void linenoiseClearScreen(void) {
+inline void linenoiseClearScreen() {
     if (write(STDOUT_FILENO,"\x1b[H\x1b[2J",7) <= 0) {
         /* nothing to do, just to avoid warning. */
     }
@@ -1749,7 +1749,7 @@ inline void linenoiseClearScreen(void) {
 
 /* Beep, used for completion when there is nothing to complete or when all
  * the choices were already shown. */
-inline void linenoiseBeep(void) {
+inline void linenoiseBeep() {
     fprintf(stderr, "\x7");
     fflush(stderr);
 }
@@ -2333,7 +2333,7 @@ inline std::string Readline(const char *prompt) {
 /* ================================ History ================================= */
 
 /* At exit we'll try to fix the terminal to the initial conditions. */
-inline void linenoiseAtExit(void) {
+inline void linenoiseAtExit() {
     disableRawMode(STDIN_FILENO);
 }
 
