@@ -146,10 +146,9 @@
 #endif
 #include <cstdlib>
 #include <cstdio>
-#include <errno.h>
+#include <cerrno>
 #include <cstring>
-#include <ctype.h>
-#include <sys/types.h>
+#include <cctype>
 #include <string>
 #include <fstream>
 #include <functional>
