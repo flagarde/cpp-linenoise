@@ -144,10 +144,10 @@
 #pragma warning(push)
 #pragma warning(disable : 4996)
 #endif
-#include <stdlib.h>
-#include <stdio.h>
+#include <cstdlib>
+#include <cstdio>
 #include <errno.h>
-#include <string.h>
+#include <cstring>
 #include <ctype.h>
 #include <sys/types.h>
 #include <string>
